@@ -1,12 +1,14 @@
 const { BinarySearch } = require('./binarySearch.js')
 const { Recursion } = require('./recursion.js')
+const { BreadthSearch } = require('./breadth-depth.js')
 class Main{
    
    exec() {
       console.log('main')
 
       //this.exectureBinarySearch()
-      this.recursion()
+      //this.recursion()
+      this.breadthSearchFirst();
    }
 
    exectureBinarySearch(){
@@ -29,6 +31,22 @@ class Main{
       console.log( quickSort);
    }
 
+
+   breadthSearchFirst(){
+      const map = new Map();
+      map.set('you',['alice','bob','claire']);
+      map.set('bob',['anuj','peggy'])
+      map.set('alice',['peggy'])
+      map.set('claire',['thom','jhonny'])
+      map.set('anuj',[])
+      map.set('peggy',[])
+      map.set('thom',[])
+      map.set('jhonny',[])
+      
+      let breadthSearch = new BreadthSearch(map);
+      console.log(breadthSearch.getPathOrNull('you'));
+
+   }
 
 
 }
