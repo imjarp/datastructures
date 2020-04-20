@@ -48,6 +48,63 @@ class Main{
 
    }
 
+   dijkstra(){
+      function createMapValue(key,value){
+         const map = new Map();
+         return map.set(key,value);
+      }
+      /*
+
+             ---{5}----> LP ---{15}---> Bass  ---{20}
+          /                 \          ^               \ 
+         /              {20}  \       / {30}            \ 
+      Book                      \   /                     Piano
+         \                       \/                    /
+          \                     /  \                  /
+           ---{0}--> Poster ---{15}---> Drums   ---{20}
+
+      */
+
+      const graph = new Map();
+      graph.set('book',createMapValue('lp',6))
+      graph.set('book',createMapValue('poster',0))
+
+      graph.set('lp',createMapValue('bass',15))
+      graph.set('lp',createMapValue('drums',20))
+
+      graph.set('bass',createMapValue('piano',20))
+
+      graph.set('poster',createMapValue('bass',30))
+      graph.set('poster',createMapValue('drums',15))
+
+      graph.set('drums',createMapValue('piano',15))
+
+   
+      const costs = new Map();
+
+      costs.set('lp',5)
+      costs.set('poster',0)
+      costs.set('bass',Infinity)
+      costs.set('drums',Infinity)
+      costs.set('piano',Infinity)
+
+      const parents = new Map()
+      parents.set('lp','book');
+      parents.set('poster','book');
+
+      parents.set('bass','lp');
+      parents.set('bass','poster');
+
+      parents.set('drums','lp');
+      parents.set('drums','poster');
+
+      parents.set('piano','bass');
+      parents.set('piano','drums');
+
+
+
+   }
+
 
 }
 
